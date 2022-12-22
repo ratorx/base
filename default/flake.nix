@@ -8,12 +8,6 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-major.minor";
-
-    # Secrets Manager
-    # sops-nix = {
-    #   url = "github:mic92/sops-nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
   outputs = { self, flake-utils, nixpkgs, ... }:
     let
