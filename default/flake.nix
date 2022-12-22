@@ -1,11 +1,6 @@
 {
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-major.minor";
   };
@@ -18,7 +13,10 @@
       let pkgs = import nixpkgs { inherit system; }; in
       {
         formatter = pkgs.nixpkgs-fmt;
-        devShells.default = pkgs.mkShell { nativeBuildInputs = [ pkgs.rnix-lsp ]; };
+        devShells.default = pkgs.mkShell {
+          nativeBuildInputs = [ pkgs.rnix-lsp ];
+          buildInputs = [ ];
+        };
       }
     );
 }
