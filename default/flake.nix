@@ -14,7 +14,7 @@
       {
         formatter = pkgs.nixpkgs-fmt;
         devShells.default = pkgs.mkShell {
-          nativeBuildInputs = [ pkgs.rnix-lsp ];
+          nativeBuildInputs = [ pkgs.nil ];
           buildInputs = [ ];
         };
       }
