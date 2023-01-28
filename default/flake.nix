@@ -10,11 +10,14 @@
       # lib = nixpkgs.lib.extend (final: _: import ./lib.nix final);
     in
     flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; }; in
-      {
+      let
+        pkgs = import nixpkgs { inherit system; };
         formatter = pkgs.nixpkgs-fmt;
+      in
+      {
+        inherit formatter;
         devShells.default = pkgs.mkShell {
-          nativeBuildInputs = [ pkgs.nil ];
+          nativeBuildInputs = [ pkgs.nil formatter ];
           buildInputs = [ ];
         };
       }
