@@ -17,8 +17,7 @@
       {
         inherit formatter;
         devShells.default = pkgs.mkShell {
-          nativeBuildInputs = [ pkgs.nil formatter ];
-          buildInputs = [ ];
+          packages = [ pkgs.nil formatter ];
         };
       }
     );
